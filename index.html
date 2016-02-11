@@ -6,6 +6,9 @@
     <link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet/v0.7.7/leaflet.css" />
     <script src="http://cdn.leafletjs.com/leaflet/v0.7.7/leaflet.js"></script>
 
+     <!-- Load leaflet hash plugin, https://github.com/mlevans/leaflet-hash -->
+    <script src="js/leaflet-hash.js"></script>
+
     <style>
       html, body,  #map {
         padding: 0;
@@ -19,12 +22,11 @@
     <script>
 
       var map = L.map('map').setView([35.322, -120.5], 10);
+      var hash = new L.Hash(map);
 
-      L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token={accessToken}', {
-      attribution: 'Map data &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors, <a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="http://mapbox.com">Mapbox</a>',
-      maxZoom: 18,
-      id: 'your.mapbox.project.id',
-      accessToken: 'your.mapbox.public.access.token'
+
+      L.tileLayer('http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+        attribution: '&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
       }).addTo(map);
 
     </script>
